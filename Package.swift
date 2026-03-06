@@ -22,15 +22,18 @@ let package = Package(
         .package(url: "https://github.com/weichsel/ZIPFoundation.git", .upToNextMajor(from: "0.9.0"))
     ],
     targets: [
+        .binaryTarget(
+            name: "MLCEngine",
+            path: "XCFrameworks/MLCEngine.xcframework"
+        ),
         .target(
             name: "MLCEngineObjC",
+            dependencies: ["MLCEngine"],
             path: "Sources/ObjC",
-            cxxSettings: [ /* 기존 설정 */ ],
-            linkerSettings: [
-                .unsafeFlags(["-L", "lib"]),  // path가 Sources/ObjC이므로 lib은 상대경로
-                .unsafeFlags(["-lmlc_llm", "-lmodel_iphone", "-lsentencepiece",
-                              "-ltokenizers_c", "-ltokenizers_cpp",
-                              "-ltvm_ffi_static", "-ltvm_runtime"])
+            cxxSettings: [
+                .headerSearchPath("third_party/tvm_ffi_include"),
+                .headerSearchPath("third_party/dlpack_include"),
+                .headerSearchPath("third_party/tvm_include")
             ]
         ),
         .target(

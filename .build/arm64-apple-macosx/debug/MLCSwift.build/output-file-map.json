@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/master.swiftdeps"
+  },
+  "/Users/rutinfc/Documents/developer/MLCDist/Sources/Swift/LLMEngine.swift": {
+    "dependencies": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/LLMEngine.d",
+    "object": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/LLMEngine.swift.o",
+    "swiftmodule": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/LLMEngine~partial.swiftmodule",
+    "swift-dependencies": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/LLMEngine.swiftdeps",
+    "diagnostics": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/LLMEngine.dia"
+  },
+  "/Users/rutinfc/Documents/developer/MLCDist/Sources/Swift/OpenAIProtocol.swift": {
+    "dependencies": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/OpenAIProtocol.d",
+    "object": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/OpenAIProtocol.swift.o",
+    "swiftmodule": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/OpenAIProtocol~partial.swiftmodule",
+    "swift-dependencies": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/OpenAIProtocol.swiftdeps",
+    "diagnostics": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCSwift.build/OpenAIProtocol.dia"
+  }
+}

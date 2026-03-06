@@ -1,0 +1,4 @@
+module MLCEngineObjC {
+    umbrella "/Users/rutinfc/Documents/developer/MLCDist/Sources/ObjC/include"
+    export *
+}

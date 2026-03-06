@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCDistAppSupport.build/master.swiftdeps"
+  },
+  "/Users/rutinfc/Documents/developer/MLCDist/Sources/MLCDistAppSupport/Support.swift": {
+    "dependencies": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCDistAppSupport.build/Support.d",
+    "object": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCDistAppSupport.build/Support.swift.o",
+    "swiftmodule": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCDistAppSupport.build/Support~partial.swiftmodule",
+    "swift-dependencies": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCDistAppSupport.build/Support.swiftdeps",
+    "diagnostics": "/Users/rutinfc/Documents/developer/MLCDist/.build/arm64-apple-macosx/debug/MLCDistAppSupport.build/Support.dia"
+  }
+}
