@@ -122,7 +122,7 @@ class AppState: ObservableObject {
                     if let finalUsage = res.usage {
                         usageText = finalUsage.extra?.asTextLabel()
                     } else {
-                        assistantContent += res.choices[0].delta.content!.asText()
+                        assistantContent += res.choices[0].delta.content?.asText() ?? ""
                     }
                 }
             }
