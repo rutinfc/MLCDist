@@ -25,10 +25,12 @@ let package = Package(
         .target(
             name: "MLCEngineObjC",
             path: "Sources/ObjC",
-            cxxSettings: [
-                .headerSearchPath("third_party/tvm_include"),
-                .headerSearchPath("third_party/tvm_ffi_include"),
-                .headerSearchPath("third_party/dlpack_include")
+            cxxSettings: [ /* 기존 설정 */ ],
+            linkerSettings: [
+                .unsafeFlags(["-L", "lib"]),  // path가 Sources/ObjC이므로 lib은 상대경로
+                .unsafeFlags(["-lmlc_llm", "-lmodel_iphone", "-lsentencepiece",
+                              "-ltokenizers_c", "-ltokenizers_cpp",
+                              "-ltvm_ffi_static", "-ltvm_runtime"])
             ]
         ),
         .target(
