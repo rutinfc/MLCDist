@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D10000012E00000100000001 /* MLCSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D10000002E00000100000001 /* MLCSwift */; };
+		D10000032E00000100000003 /* bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = D10000022E00000100000002 /* bundle */; };
+		D10000052E00000100000005 /* MLCDistAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000042E00000100000004 /* MLCDistAppApp.swift */; };
+		D10000072E00000100000007 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000062E00000100000006 /* ContentView.swift */; };
+		D10000092E00000100000009 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000082E00000100000008 /* ChatView.swift */; };
+		D100000B2E0000010000000B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100000A2E0000010000000A /* AppState.swift */; };
+		D100000D2E0000010000000D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D100000C2E0000010000000C /* Assets.xcassets */; };
+		D100000F2E0000010000000F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D100000E2E0000010000000E /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D10000102E00000100000010 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				D10000032E00000100000003 /* bundle in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D10000022E00000100000002 /* bundle */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bundle; path = dist/bundle; sourceTree = "<group>"; };
+		D10000042E00000100000004 /* MLCDistAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCDistAppApp.swift; sourceTree = "<group>"; };
+		D10000062E00000100000006 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D10000082E00000100000008 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		D100000A2E0000010000000A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D100000C2E0000010000000C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D100000E2E0000010000000E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D10000112E00000100000011 /* MLCDistApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLCDistApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D10000122E00000100000012 /* MLCDistApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MLCDistApp.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D10000132E00000100000013 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D10000012E00000100000001 /* MLCSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D10000142E00000100000014 = {
+			isa = PBXGroup;
+			children = (
+				D10000022E00000100000002 /* bundle */,
+				D10000152E00000100000015 /* MLCDistApp */,
+				D10000162E00000100000016 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D10000152E00000100000015 /* MLCDistApp */ = {
+			isa = PBXGroup;
+			children = (
+				D10000122E00000100000012 /* MLCDistApp.entitlements */,
+				D10000042E00000100000004 /* MLCDistAppApp.swift */,
+				D10000062E00000100000006 /* ContentView.swift */,
+				D10000082E00000100000008 /* ChatView.swift */,
+				D100000A2E0000010000000A /* AppState.swift */,
+				D100000C2E0000010000000C /* Assets.xcassets */,
+				D10000172E00000100000017 /* Preview Content */,
+			);
+			path = MLCDistApp;
+			sourceTree = "<group>";
+		};
+		D10000162E00000100000016 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D10000112E00000100000011 /* MLCDistApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D10000172E00000100000017 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D100000E2E0000010000000E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D10000182E00000100000018 /* MLCDistApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D10000192E00000100000019 /* Build configuration list for PBXNativeTarget "MLCDistApp" */;
+			buildPhases = (
+				D100001A2E0000010000001A /* Sources */,
+				D10000132E00000100000013 /* Frameworks */,
+				D100001B2E0000010000001B /* Resources */,
+				D10000102E00000100000010 /* Copy Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MLCDistApp;
+			packageProductDependencies = (
+				D10000002E00000100000001 /* MLCSwift */,
+			);
+			productName = MLCDistApp;
+			productReference = D10000112E00000100000011 /* MLCDistApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D100001C2E0000010000001C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					D10000182E00000100000018 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = D100001D2E0000010000001D /* Build configuration list for PBXProject "MLCDistApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D10000142E00000100000014;
+			packageReferences = (
+				D100001E2E0000010000001E /* XCLocalSwiftPackageReference "mlc-llm/ios/MLCSwift" */,
+			);
+			productRefGroup = D10000162E00000100000016 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D10000182E00000100000018 /* MLCDistApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D100001B2E0000010000001B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D100000F2E0000010000000F /* Preview Assets.xcassets in Resources */,
+				D100000D2E0000010000000D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D100001A2E0000010000001A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D10000052E00000100000005 /* MLCDistAppApp.swift in Sources */,
+				D10000072E00000100000007 /* ContentView.swift in Sources */,
+				D10000092E00000100000009 /* ChatView.swift in Sources */,
+				D100000B2E0000010000000B /* AppState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D100001F2E0000010000001F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D10000202E00000100000020 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D10000212E00000100000021 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MLCDistApp/MLCDistApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MLCDistApp/Preview Content\"";
+				DEVELOPMENT_TEAM = YW2PFU22PU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/dist/lib";
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Wl,-all_load",
+					"-lmodel_iphone",
+					"-lmlc_llm",
+					"-ltvm_runtime",
+					"-ltvm_ffi_static",
+					"-ltokenizers_cpp",
+					"-lsentencepiece",
+					"-ltokenizers_c",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mlcdist.app.rutinfc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D10000222E00000100000022 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MLCDistApp/MLCDistApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MLCDistApp/Preview Content\"";
+				DEVELOPMENT_TEAM = YW2PFU22PU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/dist/lib";
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Wl,-all_load",
+					"-lmodel_iphone",
+					"-lmlc_llm",
+					"-ltvm_runtime",
+					"-ltvm_ffi_static",
+					"-ltokenizers_cpp",
+					"-lsentencepiece",
+					"-ltokenizers_c",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mlcdist.app.rutinfc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D10000192E00000100000019 /* Build configuration list for PBXNativeTarget "MLCDistApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D10000212E00000100000021 /* Debug */,
+				D10000222E00000100000022 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D100001D2E0000010000001D /* Build configuration list for PBXProject "MLCDistApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D100001F2E0000010000001F /* Debug */,
+				D10000202E00000100000020 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D100001E2E0000010000001E /* XCLocalSwiftPackageReference "MLCSwift" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MLCSwift;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D10000002E00000100000001 /* MLCSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MLCSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D100001C2E0000010000001C /* Project object */;
+}
