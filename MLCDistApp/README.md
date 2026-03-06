@@ -1,12 +1,12 @@
 # MLCDistApp
 
-dist 폴더의 MLC 모델(Gemma3)을 실행하는 iOS 앱입니다. **로컬 MLCSwift 패키지**(`MLCDist/MLCSwift/`)와 dist 내 사전 빌드된 라이브러리를 사용합니다. tvm C++ 헤더가 패키지 내에 포함되어 있어 **mlc-llm 서브모듈 없이** 빌드 가능합니다.
+dist 폴더의 MLC 모델(Gemma3)을 실행하는 iOS 앱입니다. **루트 Package.swift**(`MLCDist/Package.swift`)와 dist 내 사전 빌드된 라이브러리를 사용합니다. tvm C++ 헤더가 `Sources/ObjC/third_party/`에 포함되어 있어 **mlc-llm 서브모듈 없이** 빌드 가능합니다.
 
 ## 사전 요구사항
 
 - Xcode 15+
 - iOS 16+
-- **실기기 필요**: dist/lib의 라이브러리가 iPhone용으로 빌드되어 있어 **시뮬레이터에서는 실행되지 않습니다**
+- **실기기 필요**: Sources/ObjC/lib의 라이브러리가 iPhone용으로 빌드되어 있어 **시뮬레이터에서는 실행되지 않습니다**
 
 ## 설정
 
@@ -42,24 +42,18 @@ dist/bundle에 포함된 모델:
 
 ```
 MLCDist/
-├── MLCDistApp.xcodeproj    # Xcode 프로젝트
+├── Package.swift           # 루트 Swift 패키지 (MLCSwift 라이브러리)
+├── Sources/
+│   ├── ObjC/               # MLCEngineObjC
+│   │   ├── lib/            # MLC 정적 라이브러리 (.a)
+│   │   ├── third_party/    # tvm C++ 헤더 (포함)
+│   │   │   ├── tvm_include/
+│   │   │   ├── tvm_ffi_include/
+│   │   │   └── dlpack_include/
+│   │   └── ...
+│   └── Swift/              # MLCSwift
+├── MLCDistApp.xcodeproj    # Xcode 프로젝트 (SPM: 루트 패키지 참조)
 ├── MLCDistApp/             # 앱 소스
-│   ├── MLCDistAppApp.swift
-│   ├── ContentView.swift
-│   ├── ChatView.swift
-│   └── AppState.swift
-├── MLCSwift/               # 로컬 MLCSwift 패키지 (독립 빌드)
-│   ├── Package.swift
-│   ├── Sources/
-│   │   ├── ObjC/
-│   │   │   ├── third_party/  # tvm C++ 헤더 (포함)
-│   │   │   │   ├── tvm_include/
-│   │   │   │   ├── tvm_ffi_include/
-│   │   │   │   └── dlpack_include/
-│   │   │   └── ...
-│   │   └── Swift/
-│   └── ...
 └── dist/                   # MLC 빌드 결과물
-    ├── bundle/             # 모델 가중치 및 설정
-    └── lib/                # 정적 라이브러리
+    └── bundle/             # 모델 가중치 및 설정
 ```

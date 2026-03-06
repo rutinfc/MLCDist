@@ -317,7 +317,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/dist/lib";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/ObjC/lib";
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-Wl,-all_load",
@@ -358,7 +358,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/dist/lib";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/ObjC/lib";
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-Wl,-all_load",
@@ -402,9 +402,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D100001E2E0000010000001E /* XCLocalSwiftPackageReference "MLCSwift" */ = {
+		D100001E2E0000010000001E /* XCLocalSwiftPackageReference "MLCDist" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = MLCSwift;
+			relativePath = .;
 		};
 /* End XCLocalSwiftPackageReference section */
 
