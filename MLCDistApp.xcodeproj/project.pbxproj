@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D10000012E00000100000001 /* MLCSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D10000002E00000100000001 /* MLCSwift */; };
-		D10000032E00000100000003 /* bundle in Copy Files */ = {isa = PBXBuildFile; fileRef = D10000022E00000100000002 /* bundle */; };
+		D10000252E00000100000025 /* MLCDistAppSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D10000262E00000100000026 /* MLCDistAppSupport */; };
 		D10000052E00000100000005 /* MLCDistAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000042E00000100000004 /* MLCDistAppApp.swift */; };
 		D10000072E00000100000007 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000062E00000100000006 /* ContentView.swift */; };
 		D10000092E00000100000009 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000082E00000100000008 /* ChatView.swift */; };
 		D100000B2E0000010000000B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100000A2E0000010000000A /* AppState.swift */; };
+		D10000232E00000100000023 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10000242E00000100000024 /* DocumentPickerView.swift */; };
 		D100000D2E0000010000000D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D100000C2E0000010000000C /* Assets.xcassets */; };
 		D100000F2E0000010000000F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D100000E2E0000010000000E /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -24,7 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				D10000032E00000100000003 /* bundle in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,11 +32,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D10000022E00000100000002 /* bundle */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bundle; path = dist/bundle; sourceTree = "<group>"; };
 		D10000042E00000100000004 /* MLCDistAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCDistAppApp.swift; sourceTree = "<group>"; };
 		D10000062E00000100000006 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D10000082E00000100000008 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D100000A2E0000010000000A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D10000242E00000100000024 /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
 		D100000C2E0000010000000C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D100000E2E0000010000000E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D10000112E00000100000011 /* MLCDistApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLCDistApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D10000012E00000100000001 /* MLCSwift in Frameworks */,
+				D10000252E00000100000025 /* MLCDistAppSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +59,6 @@
 		D10000142E00000100000014 = {
 			isa = PBXGroup;
 			children = (
-				D10000022E00000100000002 /* bundle */,
 				D10000152E00000100000015 /* MLCDistApp */,
 				D10000162E00000100000016 /* Products */,
 			);
@@ -72,6 +72,7 @@
 				D10000062E00000100000006 /* ContentView.swift */,
 				D10000082E00000100000008 /* ChatView.swift */,
 				D100000A2E0000010000000A /* AppState.swift */,
+				D10000242E00000100000024 /* DocumentPickerView.swift */,
 				D100000C2E0000010000000C /* Assets.xcassets */,
 				D10000172E00000100000017 /* Preview Content */,
 			);
@@ -113,6 +114,7 @@
 			name = MLCDistApp;
 			packageProductDependencies = (
 				D10000002E00000100000001 /* MLCSwift */,
+				D10000262E00000100000026 /* MLCDistAppSupport */,
 			);
 			productName = MLCDistApp;
 			productReference = D10000112E00000100000011 /* MLCDistApp.app */;
@@ -143,7 +145,7 @@
 			);
 			mainGroup = D10000142E00000100000014;
 			packageReferences = (
-				D100001E2E0000010000001E /* XCLocalSwiftPackageReference "mlc-llm/ios/MLCSwift" */,
+				D100001E2E0000010000001E /* XCLocalSwiftPackageReference "." */,
 			);
 			productRefGroup = D10000162E00000100000016 /* Products */;
 			projectDirPath = "";
@@ -175,6 +177,7 @@
 				D10000072E00000100000007 /* ContentView.swift in Sources */,
 				D10000092E00000100000009 /* ChatView.swift in Sources */,
 				D100000B2E0000010000000B /* AppState.swift in Sources */,
+				D10000232E00000100000023 /* DocumentPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +405,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D100001E2E0000010000001E /* XCLocalSwiftPackageReference "MLCDist" */ = {
+		D100001E2E0000010000001E /* XCLocalSwiftPackageReference "." */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = .;
 		};
@@ -412,6 +415,10 @@
 		D10000002E00000100000001 /* MLCSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MLCSwift;
+		};
+		D10000262E00000100000026 /* MLCDistAppSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MLCDistAppSupport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

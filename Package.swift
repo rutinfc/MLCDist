@@ -12,9 +12,15 @@ let package = Package(
         .library(
             name: "MLCSwift",
             targets: ["MLCEngineObjC", "MLCSwift"]
+        ),
+        .library(
+            name: "MLCDistAppSupport",
+            targets: ["MLCDistAppSupport"]
         )
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/weichsel/ZIPFoundation.git", .upToNextMajor(from: "0.9.0"))
+    ],
     targets: [
         .target(
             name: "MLCEngineObjC",
@@ -29,6 +35,11 @@ let package = Package(
             name: "MLCSwift",
             dependencies: ["MLCEngineObjC"],
             path: "Sources/Swift"
+        ),
+        .target(
+            name: "MLCDistAppSupport",
+            dependencies: ["ZIPFoundation"],
+            path: "Sources/MLCDistAppSupport"
         )
     ],
     cxxLanguageStandard: .cxx17

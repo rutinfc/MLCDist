@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 import MLCSwift
+import ZIPFoundation
+import UniformTypeIdentifiers
 
 struct ModelInfo {
     let modelId: String
@@ -23,51 +25,117 @@ struct ChatMessage: Identifiable {
 @MainActor
 class AppState: ObservableObject {
     private let engine = MLCEngine()
-    private var bundleURL: URL {
-        Bundle.main.bundleURL.appending(path: "bundle")
-    }
+
+    /// iOS Files에서 import된 zip의 압축 해제 폴더 (zip 파일명으로 생성)
+    /// 이 폴더 아래에 mlc-app-config.json과 모델 폴더들이 있음
+    @Published var importedModelBaseURL: URL?
 
     @Published var displayText = ""
     @Published var messages: [ChatMessage] = []
-    @Published var isLoading = true
+    @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isGenerating = false
+    @Published var isImporting = false
     @Published var selectedModel: ModelInfo?
     @Published var availableModels: [ModelInfo] = []
 
     private var engineLoaded = false
 
-    init() {
-        loadAvailableModels()
-        selectDefaultModel()
+    /// 앱 Documents 디렉토리 (import된 모델 저장 위치)
+    private var documentsURL: URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
 
-    private func loadAvailableModels() {
-        // bundle 폴더가 앱 리소스에 복사됨 (dist/bundle)
-        if let configURL = Bundle.main.url(forResource: "mlc-app-config", withExtension: "json", subdirectory: "bundle"),
-           let data = try? Data(contentsOf: configURL),
-           let config = try? JSONDecoder().decode(MLCAppConfig.self, from: data) {
-            availableModels = config.modelList.map { model in
-                ModelInfo(
-                    modelId: model.modelId,
-                    modelPath: model.modelPath,
-                    modelLib: model.modelLib
-                )
+    init() {
+        loadLastImportedModel()
+    }
+
+    /// 마지막으로 import한 모델 폴더 로드
+    private func loadLastImportedModel() {
+        if let path = UserDefaults.standard.string(forKey: "lastImportedModelURLPath"),
+           FileManager.default.fileExists(atPath: path) {
+            importedModelBaseURL = URL(fileURLWithPath: path)
+            loadModelsFromImportedFolder()
+            selectDefaultModel()
+        }
+    }
+
+    /// zip 파일 import (iOS Files에서 선택)
+    /// - zip을 Documents/<zip파일명>/ 폴더에 압축 해제
+    func importModelZip(from sourceURL: URL) {
+        isImporting = true
+        errorMessage = nil
+
+        Task {
+            do {
+                // zip 파일명(확장자 제외)으로 폴더 생성
+                let zipFileName = sourceURL.deletingPathExtension().lastPathComponent
+                let destinationURL = documentsURL.appending(path: zipFileName)
+
+                // 기존 폴더가 있으면 삭제
+                if FileManager.default.fileExists(atPath: destinationURL.path) {
+                    try FileManager.default.removeItem(at: destinationURL)
+                }
+                try FileManager.default.createDirectory(at: destinationURL, withIntermediateDirectories: true)
+
+                // zip 압축 해제
+                try FileManager.default.unzipItem(at: sourceURL, to: destinationURL)
+
+                // 압축 해제 후 zip 파일 삭제 (용량 절약)
+                try? FileManager.default.removeItem(at: sourceURL)
+
+                // mlc-app-config.json 확인
+                let configURL = destinationURL.appending(path: "mlc-app-config.json")
+                guard FileManager.default.fileExists(atPath: configURL.path) else {
+                    throw NSError(domain: "AppState", code: -1, userInfo: [NSLocalizedDescriptionKey: "mlc-app-config.json을 찾을 수 없습니다. zip 구조를 확인해주세요."])
+                }
+
+                await MainActor.run {
+                    importedModelBaseURL = destinationURL
+                    UserDefaults.standard.set(destinationURL.path, forKey: "lastImportedModelURLPath")
+                    loadModelsFromImportedFolder()
+                    selectDefaultModel()
+                    engineLoaded = false
+                    startEngineIfNeeded()
+                    isImporting = false
+                }
+            } catch {
+                await MainActor.run {
+                    errorMessage = "모델 import 실패: \(error.localizedDescription)"
+                    isImporting = false
+                }
             }
-        } else {
-            // 폴백: dist/bundle/mlc-app-config.json 기반 기본 모델
-            availableModels = [
-                ModelInfo(modelId: "gemma3-270m-v13-q4f16_0", modelPath: "gemma3-270m-v13-q4f16_0", modelLib: "gemma3_text_q4f16_0_4cfe7a4812ed2a438e1fa691f0f6f158"),
-                ModelInfo(modelId: "gemma3-270m-v13-q4f16_1", modelPath: "gemma3-270m-v13-q4f16_1", modelLib: "gemma3_text_q4f16_1_05e65fe2ba13ae2a9724bff8288b593f"),
-                ModelInfo(modelId: "gemma3-1b-v9-q4f16_0", modelPath: "gemma3-1b-v9-q4f16_0", modelLib: "gemma3_text_q4f16_0_5f7490bb7a0220180ac9660a30560e11"),
-                ModelInfo(modelId: "gemma3-1b-v9-q4f16_1", modelPath: "gemma3-1b-v9-q4f16_1", modelLib: "gemma3_text_q4f16_1_c6979bf20d04b9a71d1118f1fb7c6fc1"),
-            ]
+        }
+    }
+
+    /// import된 폴더의 mlc-app-config.json에서 모델 목록 로드
+    private func loadModelsFromImportedFolder() {
+        guard let baseURL = importedModelBaseURL else {
+            availableModels = []
+            return
+        }
+
+        let configURL = baseURL.appending(path: "mlc-app-config.json")
+        guard let data = try? Data(contentsOf: configURL),
+              let config = try? JSONDecoder().decode(MLCAppConfig.self, from: data) else {
+            availableModels = []
+            return
+        }
+
+        availableModels = config.modelList.map { model in
+            ModelInfo(
+                modelId: model.modelId,
+                modelPath: model.modelPath,
+                modelLib: model.modelLib
+            )
         }
     }
 
     private func selectDefaultModel() {
         if let first = availableModels.first {
             selectedModel = first
+        } else {
+            selectedModel = nil
         }
     }
 
@@ -78,7 +146,7 @@ class AppState: ObservableObject {
     }
 
     func startEngineIfNeeded() {
-        guard !engineLoaded, let model = selectedModel else {
+        guard !engineLoaded, let model = selectedModel, let baseURL = importedModelBaseURL else {
             isLoading = false
             return
         }
@@ -88,8 +156,9 @@ class AppState: ObservableObject {
 
         Task {
             do {
-                let modelLocalPath = bundleURL.appending(path: model.modelPath).path()
-                await engine.reload(modelPath: modelLocalPath, modelLib: model.modelLib)
+                // baseURL + modelPath = 모델 폴더 전체 경로
+                let modelFullPath = baseURL.appending(path: model.modelPath).path()
+                await engine.reload(modelPath: modelFullPath, modelLib: model.modelLib)
                 engineLoaded = true
                 isLoading = false
             } catch {
